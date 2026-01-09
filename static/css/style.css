@@ -1,0 +1,23 @@
+body{
+  color: white ; 
+  background-image: url("../images/1 page.jpg");
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+
+h2{
+  color: rgb(30, 144, 12);
+  text-align: center;
+  font-size: 50px;
+  font-family: 'Times New Roman', Times, serif;
+  background-image: url("../images/ss.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+  }
+    
+
+
+    
+
+

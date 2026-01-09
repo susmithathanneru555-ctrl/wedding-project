@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Groom Details</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+            <!-- Import fonts: Playfair Display for headings, Dancing Script for cursive details -->
+            <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+            <style>
+                .groom-img { max-width: 100%; width: 100%; height: auto; display: block; }
+                .two-col { display: flex; gap: 0; align-items: stretch; }
+                .col { flex: 1 1 50%; }
+                .col img { 
+                               width: 100%; 
+                               height: auto; 
+                               display: block; 
+                               max-width: 1200px; /* prevent upscaling beyond this width */
+                               margin: 0 auto;
+                               image-rendering: auto; /* avoid pixelated look for photos */
+                               -webkit-font-smoothing: antialiased;
+                               -webkit-backface-visibility: hidden;
+                               backface-visibility: hidden;
+                               will-change: transform, filter;
+                               filter: contrast(1.05) saturate(1.06);
+                           }
+                           .col img.sharpen { filter: url('#sharpen') contrast(1.05) saturate(1.04); }
+                /* stack on small screens */
+                @media (max-width: 768px) { .two-col { flex-direction: column; } }
+                            .details { text-align: center; padding: 1rem; background: #fff9f9; }
+                            /* Italian / elegant styling for groom details */
+                            .groom-details { display:flex; flex-direction:column; justify-content:center; align-items:center; height:100%; padding:2rem; box-sizing:border-box; }
+                            .groom-details h2 { font-family: 'Dancing Script', cursive; color: #b8860b; font-size:3.2rem; margin:0 0 .5rem 0; }
+                            .groom-details p { font-family: 'Dancing Script', cursive; color:#333; margin:0.25rem 0; font-size:1.4rem; }
+                            /* main message font size */
+                            .details h1 { font-family: 'Playfair Display', serif; font-size:2rem; }
+                            .groom-details a { color:#b8860b; text-decoration:none; margin-top:1rem; }
+                /* make the right column full-height and ensure the image covers it */
+                /* ensure page and container fill viewport so right image covers the right half */
+                html, body { height: 100%; margin: 0; }
+                .two-col { height: 100vh; box-sizing: border-box; }
+                .col { padding: 0; }
+                .right-col { position: relative; overflow: hidden; flex: 0 0 50%; }
+                .right-img { width:100%; height:100%; object-fit:cover; object-position:center center; display:block; max-width: none; }
+            </style>
+</head>
+<body style="text-align:center; background-color:#ffe6f2;">
+            <div class="two-col">
+            <div class="col">
+                <div class="groom-details">
+                    <h2>Groom Details</h2>
+                    <p><strong>Groom:</strong> Krishna</p>
+                    <p><strong>Father:</strong> Ramesh</p>
+                    <p><strong>Mother:</strong> Yashoda</p>
+                    <p><strong>Well-wisher:</strong> Sudha</p>
+                    <p><strong>Wedding Date:</strong> 21-05</p>
+                    <p><strong>Venue:</strong> Alavala</p>
+                    <p><strong>Address:</strong> Palnadu</p>
+                    <a href="/">Back to Home</a>
+                </div>
+            </div>
+            <div class="col right-col">
+                <img src="{% static 'images/groom.jpg' %}" alt="Groom" class="right-img sharpen"
+                         srcset="{% static 'images/groom.jpg' %} 1x" />
+            </div>
+        </div>
+
+    <!-- Inline SVG filter for mild sharpening -->
+    <svg aria-hidden="true" style="position: absolute; width: 0; height: 0;">
+      <filter id="sharpen">
+        <!-- simple sharpen kernel -->
+        <feConvolveMatrix order="3" kernelMatrix="0 -1 0 -1 5 -1 0 -1 0" divisor="1" />
+      </filter>
+    </svg>
+        <div class="details">
+            <h1>{{ message }}</h1>
+        </div>
+</body>
+</html>

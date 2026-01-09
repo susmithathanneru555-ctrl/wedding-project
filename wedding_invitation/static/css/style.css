@@ -1,0 +1,19 @@
+body{
+  color: white ; 
+  background-image: url("../images/bac.jpg");
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+body{
+  background-image:  url("{% static 'images/rr.jpg' %}");
+  background-size: cover;
+  background-position: top center; /* <-- show top part of image */
+  background-repeat: no-repeat;
+}
+
+    
+
+
+    
+
+

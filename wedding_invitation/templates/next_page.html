@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+     <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+        <title>Next Page</title>
+        <style>
+            /* Full-page background using Django static files */
+            body {
+                margin: 0;
+                min-height: 100vh;
+                background-image: url("{% static 'images/rr.jpg' %}");
+                background-size: cover; /* cover entire viewport */
+                background-position: center center;
+                background-repeat: no-repeat;
+                /* optional fallback color while image loads */
+                background-color: #f7efe9;
+                font-family: 'Times New Roman', Times, serif;
+                color: #fff;
+            }
+
+            /* overlay to improve text readability */
+            .bg-overlay {
+                background-color: rgba(0,0,0,0.35);
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center; /* keep buttons centered vertically */
+                text-align: center;
+                padding: 2rem;
+                position: relative;
+            }
+
+            /* fixed header at the top-center of the viewport */
+            .page-header {
+                position: absolute;
+                top: 24px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 2;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                pointer-events: none; /* let clicks pass through except for children */
+                padding: 0 1rem;
+            }
+
+            .page-header h2 {
+                pointer-events: auto; /* re-enable interactions for the heading if needed */
+                color: #fff;
+                text-align: center;
+                font-size: 48px;
+                margin: 0;
+                font-weight: 700;
+                text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+            }
+
+                .btn{
+                        background-color: rgba(255,182,193,0.95); /* light pink */
+                        color: #222;
+                        padding: 12px 28px;
+                        text-align: center;
+                        text-decoration: none;
+                        display: inline-block;
+                        font-size: 16px;
+                        margin: 6px 8px;
+                        cursor: pointer;
+                        border-radius: 12px;
+                        border: none;
+                }
+
+                /* Make layout responsive on small screens */
+                @media (max-width: 480px) {
+                    h2 { font-size: 28px; }
+                    .btn { padding: 10px 18px; font-size: 14px; }
+                }
+
+        </style>
+    </head>
+
+
+
+        <body>
+            <div class="bg-overlay">
+                <div class="page-header">
+                    <h2><strong>💕💕 Tied By love, Blessed By Family Heart 💕💕</strong></h2>
+                </div>
+
+                <div>
+                    <a href="groom.html" target="_blank">
+                        <button class="btn">GROOM</button>
+                    </a>
+                    <a href="bride.html" target="_blank">
+                        <button class="btn">BRIDE</button>
+                    </a>
+                </div>
+            </div>
+
+        </body>
+        </html>

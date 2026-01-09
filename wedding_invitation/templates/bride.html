@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Bride Details</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+        <style>
+            body { height: 100vh;margin:0; background-color:#ffe6f2; color:#222; }
+            .two-col { display:flex; align-items:stretch; }
+            .print-btn { display:inline-block; margin-top:1rem; padding:.45rem .8rem; background:#b8860b; color:#fff; border-radius:.25rem; text-decoration:none; cursor:pointer; }
+            /* print card styling */
+            @media print{
+                body { background: #fff; }
+                .two-col { display:block; }
+                .bride-details { page-break-inside: avoid; }
+            }
+            .col { flex:1 1 50%; }
+            .col img { width:100%; height:auto; display:block; }
+            .bride-details { display:flex; flex-direction:column; justify-content:center; align-items:center; padding:2rem; }
+            .bride-details h2 { font-family:'Dancing Script', cursive; color:#b8860b; font-size:3rem; margin:0 0 .5rem 0; }
+            .bride-details p { font-family:'Dancing Script', cursive; font-size:1.3rem; margin:.25rem 0; }
+            .bride-details a { color:#b8860b; text-decoration:none; margin-top:1rem; }
+            @media (max-width:768px){ .two-col{ flex-direction:column } .bride-details h2{ font-size:2.2rem } }
+            /* print styles */
+            @media print{
+                body { background: #fff; }
+                .two-col { display:block; }
+                .col img { max-width:100%; }
+            }
+        </style>
+</head>
+<body>
+    <div class="two-col">
+        <div class="col bride-details">
+            <h2>Bride Details</h2>
+                <p><strong>Bride:</strong> {{ bride.name|default:"Radha" }}</p>
+                <p><strong>Father:</strong> {{ bride.father|default:"Shyam" }}</p>
+                <p><strong>Mother:</strong> {{ bride.mother|default:"Lakshmi" }}</p>
+                <p><strong>Wedding Date:</strong> {{ bride.date|default:"21-05" }}</p>
+                <p><strong>Well-wisher:</strong> {{ bride.well_wisher|default:"Devi" }}</p>
+                <p><strong>Venue:</strong> {{ bride.venue|default:"Sudha" }}</p>
+                <p><strong>Address:</strong> {{ bride.address|default:"Romphicherla" }}</p>
+                <p><strong>Buffet Details:</strong> {{ bride.buffet|default:"Alavala" }}</p>
+                <a href="/">Back to Home</a>
+        </div>
+        <div class="col">
+            <img src="{% static 'images/bride.jpg' %}" alt="Bride" />
+        </div>
+    </div>
+</body>
+</html>
