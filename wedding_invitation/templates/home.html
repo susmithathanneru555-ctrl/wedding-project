@@ -45,7 +45,7 @@
     <div class="hero">
       <img src="{% static 'images/bac.jpg' %}" alt="cover" class="hero-img img-fluid" />
       <div class="hero-next">
-        <a href="next_page.html" target="_blank"><button class="btn-next">Next</button></a>
+        <a href="{% url 'next_page' %}" target="_blank"><button class="btn-next">Next</button></a>
       </div>
       <div class="hero-heading">
         <h1>WEDDING INVITATION</h1>
@@ -54,7 +54,7 @@
 
     <div class="content-box container">
 
-      <a href="next_page.html">Go to the next page</a>
+      <a href="{% url 'next_page' %}">Go to the next page</a>
       <p id="display"></p>
     </div>
 

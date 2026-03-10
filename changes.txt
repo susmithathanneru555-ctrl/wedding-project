@@ -1,0 +1,5 @@
+1. change paths directories
+2. Remove folders in .env folders
+3. in settings.py check the media urls and base directories
+4. Try to add all static files in one place
+5. Have the base html file names index.html

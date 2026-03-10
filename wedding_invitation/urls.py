@@ -15,14 +15,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from . import views
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.home, name='home'),
-    path('next_page.html', views.next_page_view, name='next_page'),
-    path('bride.html',views.bride_view,name='bride'),
-    path('groom.html',views.groom_view,name='groom'),
+    # delegate all non‑admin URLs to the invitation app
+    path('', include('invitation.urls')),
 ]
 

@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'wedding_invitation',
     'invitation',
 ]
 
@@ -56,7 +55,9 @@ ROOT_URLCONF = 'wedding_invitation.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        # include the top‑level templates folder so Django can load
+        # the home.html/next_page.html files you placed there
+        'DIRS': [BASE_DIR / 'wedding_invitation' / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,10 +119,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
-STATIC_ROOT = BASE_DIR / 'static'
-STATICFILES_DIRS=[
-    'wedding_invitation/static'
-]
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 
 
 # Default primary key field type
