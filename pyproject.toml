@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "wedding-invitation"
+version = "0.1.0"
+description = "Wedding invitation Django application"
+authors = ["Your Name <your.email@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = "5.2.12"
+gunicorn = "25.1.0"
+whitenoise = "6.7.0"
+Pillow = "10.4.0"
+
+[tool.poetry.group.dev.dependencies]
+# Add development dependencies here if needed
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+start = "gunicorn wsgi:application --bind 0.0.0.0:$PORT"
