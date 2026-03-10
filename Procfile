@@ -1,1 +1,1 @@
-web: gunicorn wsgi:application --bind 0.0.0.0:$PORT --workers 2 --timeout 30
+web: gunicorn wedding_invitation.wsgi:application --bind 0.0.0.0:$PORT --workers 2 --timeout 30
