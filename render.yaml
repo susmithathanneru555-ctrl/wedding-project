@@ -3,7 +3,7 @@ services:
     name: wedding-invitation
     runtime: python3
     buildCommand: "bash build.sh"
-    startCommand: "gunicorn wedding_invitation.wsgi:application --bind 0.0.0.0:$PORT --workers 2 --timeout 30"
+    startCommand: "gunicorn wsgi:application --bind 0.0.0.0:$PORT --workers 2 --timeout 30"
     envVars:
       - key: SECRET_KEY
         value: pRI1De1BYigviqXLgXUi8ToVmO3tbp1DX6depQF2dbrVMFuM9hrDqzpH_XcsXjImLm4
@@ -13,5 +13,7 @@ services:
         value: "*.onrender.com,localhost,127.0.0.1"
       - key: PYTHONUNBUFFERED
         value: "1"
+      - key: PYTHONPATH
+        value: "/opt/render/project/src"
       - key: MAX_THREADS
         value: "4"
