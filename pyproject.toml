@@ -19,4 +19,4 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-start = "gunicorn wsgi:application --bind 0.0.0.0:$PORT"
+web = "gunicorn wsgi:application --bind 0.0.0.0:$PORT --workers 2 --timeout 30"
